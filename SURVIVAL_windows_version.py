@@ -1,42 +1,67 @@
-#initialise game
+#initialize game
 import time
 import os
-os.system('clear')
+import colorama
+from colorama import Fore, Back, Style, init
+
+init()  # Initialize colorama
+
+# setup clear screen function
+def Clear_Screen():
+    os.system('cls')
+    time.sleep(2)
+    print("remaining health")
+    print(str(lives))
+    time.sleep(2)
+    os.system('cls')
+    time.sleep(2)
+
+os.system('cls')
 
 # Initialize starting variables
 inventory = ['Dagger', 'RumBottle', 'EMPTY']
-lives = (3)
+lives = 3
 
-#setup inventory function
+# setup inventory function
 def print_inventory():
     print('Slot1 =', inventory[0])
     print('Slot2 =', inventory[1])
     print('Slot3 =', inventory[2])
 
-#death function
+# death function
 def Death_Outcome():
-    if lives < (1):
+    if lives < 1:
         print('you have lost all health')
         time.sleep(3)
         ('you are in an awful condition')
         time.sleep(3)
-        print('YOU DIED')
+        print(Fore.RED + 'YOU DIED')
         time.sleep(9999999)
-    
 
-#setup clear screen function
-def Clear_Screen():
-    os.system('clear')
-    time.sleep(2)
-    print("remaining health")
-    print(str(lives))
-    time.sleep(2)
-    os.system('clear')
-    time.sleep(2)
+# Title sequence
+time.sleep(3)
+print('A game by M7135')
+time.sleep(3)
+os.system('cls')
+time.sleep(3)
+print('Story by M7135')
+time.sleep(3)
+os.system('cls')
+time.sleep(3)
+print('Programmed using Python')
+time.sleep(3)
+os.system('cls')
+time.sleep(3)
+print('PizzaSlice Games presents...')
+time.sleep(3)
+os.system('cls')
+time.sleep(3)
+print(Fore.RED+'SURVIVE')
+time.sleep(3)
+os.system('cls')
 
 # Introduction
-time.sleep(2)
-print('You wake up on the floor of a dirty tavern.')
+print(Fore.WHITE+'You wake up on the floor of a dirty tavern.')
 time.sleep(2)
 print('The smell of death fills the air.')
 time.sleep(2)
@@ -47,8 +72,6 @@ print('1. LEAVE THE TAVERN')
 print('2. SEARCH')
 print('3. INVENTORY')
 print('Do not repeat the same command twice; the game will not work.')
-
-# Player input
 choice = input('What do you do: ')
 
 # Process player choice
@@ -61,7 +84,7 @@ if choice == 'SEARCH':
     print('Which inventory slot would you like to replace?')
     print_inventory()
     inventory_swap = input('Slot1, Slot2, Slot3: ')
-    
+
     if inventory_swap in ['Slot1', 'Slot2', 'Slot3']:
         inventory[int(inventory_swap[-1]) - 1] = 'arrows'
         print("You collected arrows.")
@@ -85,7 +108,7 @@ if choice == 'LEAVE THE TAVERN':
 Clear_Screen()
 Death_Outcome()
 
-print('you wake up in the towns church, where you set up the previous night')
+print('you wake up in the town\'s church, where you set up the previous night')
 time.sleep(2)
 print('you hear a noise outside and decide to investigate')
 time.sleep(2)
@@ -95,12 +118,12 @@ print('it is grunting and looking for food')
 time.sleep(2)
 print('you have to get out of there')
 time.sleep(2)
-print('You see a bow about 5 metres away.')
+print('You see a bow about 5 meters away.')
 time.sleep(2)
 print('Which inventory slot would you like to replace?')
 print_inventory()
 inventory_swap = input('Slot1, Slot2, Slot3: ')
-    
+
 if inventory_swap in ['Slot1', 'Slot2', 'Slot3']:
     inventory[int(inventory_swap[-1]) - 1] = 'bow'
     print("You collected bow.")
@@ -110,7 +133,6 @@ if inventory_swap in ['Slot1', 'Slot2', 'Slot3']:
     print('2. RUN OUT OF THE CHURCH')
     print('3. HIDE')
     choice = input('What do you do: ')
-
 
 if choice == 'SHOOT THE BEAR':
     if 'bow' in inventory and 'arrows' in inventory:
@@ -125,7 +147,7 @@ if choice == 'SHOOT THE BEAR':
         print('Options:')
         print('2. EXPLORE THE TOWN')
         choice = input('What do you do: ')
-        
+
     else:
         print('you do not have the required resources (bow + arrows)')
         time.sleep(2)
@@ -134,7 +156,9 @@ if choice == 'SHOOT THE BEAR':
         print('2. HIDE')
         choice = input('What do you do: ')
 
-#bear rips leg off scene
+
+
+# bear rips leg off scene
 if choice == 'RUN OUT OF THE CHURCH':
     print('You run out of the church, hoping to escape the bear.')
     time.sleep(3)
@@ -142,7 +166,7 @@ if choice == 'RUN OUT OF THE CHURCH':
     time.sleep(3)
     print('the bear grasps your leg with its teeth')
     time.sleep(2)
-    print('you kick and thrash but you cant get it off')
+    print('you kick and thrash but you can\'t get it off')
     time.sleep(2)
     print('the blood seeps through your pants into the snow')
     time.sleep(2)
@@ -152,7 +176,7 @@ if choice == 'RUN OUT OF THE CHURCH':
     time.sleep(3)
     print('your leg is gone')
     time.sleep(3)
-    print('you scream in pain but no-one can hear it')
+    print('you scream in pain but no one can hear it')
     time.sleep(3)
     print('Options:')
     print('1. CRAWL TO A HOUSE')
@@ -161,11 +185,11 @@ if choice == 'RUN OUT OF THE CHURCH':
     if choice == 'CRAWL TO A HOUSE':
         print('you drag yourself to a nearby house')
         time.sleep(3)
-        print('you know you wont make it')
+        print('you know you won\'t make it')
         time.sleep(3)
-        print('so you dont even try to survive')
+        print('so you don\'t even try to survive')
         time.sleep(3)
-        os.system('clear')
+        os.system('cls')
         print("YOU DIED")
 
     if choice == 'PATCH THE WOUND':
@@ -192,7 +216,7 @@ if choice == 'RUN OUT OF THE CHURCH':
             time.sleep(3)
             print("YOU SURVIVED NIGHT 2")
             time.sleep(3)
-            lives -= (2)
+            lives -= 2
             Clear_Screen()
             Death_Outcome()
             print('you wake up to the sound of voices')
@@ -201,13 +225,13 @@ if choice == 'RUN OUT OF THE CHURCH':
             time.sleep(2)
             print('two hunters are walking into the town')
             time.sleep(2)
-            print('wheighing your options you decide to risk it and yell out to them')
+            print('weighing your options you decide to risk it and yell out to them')
             time.sleep(3)
             print('their heads snap towards you')
             time.sleep(2)
             print('they talk amongst themselves for a minute before beginning to walk over')
             time.sleep(3)
-            print('you see bows and kinfes strapped to their backpack')
+            print('you see bows and knives strapped to their backpack')
             time.sleep(3)
             print('Options:')
             print('1. DRAW DAGGER')
@@ -223,8 +247,8 @@ if choice == 'RUN OUT OF THE CHURCH':
                 time.sleep(3)
                 print('you know you are saved')
                 time.sleep(3)
-                os.system('clear')
-                print('ENDING 1')
+                os.system('cls')
+                print(Fore.GREEN + 'ENDING 1')
                 time.sleep(9999999)
 
             if choice == 'DRAW DAGGER':
@@ -234,30 +258,29 @@ if choice == 'RUN OUT OF THE CHURCH':
                 time.sleep(3)
                 print('quicker than you can blink, they shoot')
                 time.sleep(3)
-                os.system('clear')
-                print('YOU DIED')
+                os.system('cls')
+                print(Fore.RED + 'YOU DIED')
                 time.sleep(9999999)
 
-   
 
 if choice == 'HIDE':
     print('You find a hiding spot in the church and wait for the bear to leave.')
     time.sleep(2)
-    print('but it doesnt seem to')
+    print('but it doesn\'t seem to')
     time.sleep(2)
     print('you are starting to get cold')
     time.sleep(2)
     print('the cold has impaired your movement')
     time.sleep(2)
-    print('due to the minor frostbite you aquired you have lost a health')
+    print('due to the minor frostbite you acquired, you have lost a health')
     time.sleep(2)
 
-    lives -= (1)
+    lives -= 1
     print("remaining health")
     print(str(lives))
     time.sleep(2)
 
-    print('finally you hear the bear leave')
+    print('finally, you hear the bear leave')
     time.sleep(2)
     print('Options:')
     print('2. EXPLORE THE TOWN')
@@ -268,7 +291,7 @@ if choice == ('EXPLORE THE TOWN'):
     time.sleep(2)
     print('suddenly you hear a howl')
     time.sleep(2)
-    print('then you get a glipse of a wolf in one of the houses windows')
+    print('then you get a glimpse of a wolf in one of the houses windows')
     time.sleep(2)
     print('you need to leave this place')
     time.sleep(2)
@@ -281,3 +304,10 @@ if choice == ('EXPLORE THE TOWN'):
 
 Clear_Screen()
 Death_Outcome()
+
+print('more story coming soon,')
+time.sleep(2)
+print('thanks for playing!')
+time.sleep(2)
+print(':)')
+
