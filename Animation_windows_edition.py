@@ -8,13 +8,16 @@
 
 
 import time,os,sys,colorama
-os.system('clear')
+from colorama import Fore, Back, Style, init
+os.system('cls')
+
+init()
 
 tme = 0.5 # time between frames
 
 Loop_Amount=4 # variable for amount of full loops
 
-def F(Symbols): # makes frames cleaner and easier to understand
+def F(Symbols):
     print(Symbols)
 
 def Clearlines(): # function to refresh the screen
