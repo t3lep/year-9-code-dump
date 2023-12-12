@@ -1,5 +1,5 @@
 import time,os
-os.system('clear')
+os.system('cls')
 
 tme = 0.1 # time between frames
 
